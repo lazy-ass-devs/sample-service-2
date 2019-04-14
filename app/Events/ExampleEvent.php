@@ -4,9 +4,7 @@ namespace App\Events;
 
 class ExampleEvent extends Event
 {    
-    public $exchangeName = 'events';
-    public $data;
-
+        
     /**
      * Create a new event instance.
      *
@@ -14,6 +12,9 @@ class ExampleEvent extends Event
      */
     public function __construct()
     {
-        $this->data = (object) ['name' => 'Lazy Ass Devs', 'occupation' => 'Devs'];
+        $data = ['name' => 'Lazy Ass Devs', 'occupation' => 'Devs'];
+        // the first parameter is the eventName
+        parent::__invoke('HelloEvent', $data);
     }
+
 }
